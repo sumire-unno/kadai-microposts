@@ -21,12 +21,16 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+    /* web.phpの
+       Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
+       Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+    */
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
+     //ユーザ登録後のリダイレクト先がトップページへ
     protected $redirectTo = '/';
 
     /**
@@ -48,8 +52,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
