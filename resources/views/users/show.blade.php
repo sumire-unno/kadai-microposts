@@ -4,6 +4,8 @@
     <div class="row">
         <aside class="col-sm-4">
              @include('users.card', ['user' => $user])
+             </aside>
+        <aside class="col-sm 8">     
               @include('users.navtabs', ['user' => $user])
             @if (Auth::id() == $user->id)
                 {!! Form::open(['route' => 'microposts.store']) !!}
@@ -18,4 +20,5 @@
             @endif
         </div>
     </div>
+    </aside>
 @endsection
